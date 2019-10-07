@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "build": ".venv/bin/python3 compile.py < main.py > main_compiled.py && .venv/bin/python3 -m transcrypt -b -p .none -n main_compiled.py",
+    "start": "node -r esm __target__/main_compiled.js"
+  },
+  "dependencies": {
+    "esm": "^3.2.25",
+    "htm": "^2.2.1"
+  }
+}
