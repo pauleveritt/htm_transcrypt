@@ -4,10 +4,13 @@
     <title>Hello</title>
 </head>
 <body>
-<h1>Hello World</h1>
+<h1>placeholder...</h1>
 <script type="module">
+    import { render } from 'https://unpkg.com/htm/preact/standalone.module.js'
     import htm from 'https://unpkg.com/htm?module';
-    import * as demo from './__target__/main_compiled.js';
+    import {view} from './__target__/main_compiled.js';
+
+    render(view(), document.body);
 </script>
 </body>
 </html>
