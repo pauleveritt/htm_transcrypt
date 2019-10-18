@@ -1,11 +1,13 @@
 # __pragma__ ('skip')
 from htm import htm
-
 # __pragma__ ('noskip')
-
 # __pragma__ ('ecom')
 '''?
-__pragma__('js', 'const htmjs = require("htm");')
+__pragma__('js', """
+    var module = {{}};
+    {}
+    var htmjs = module.exports;
+""", __include__("node_modules/htm/dist/htm.js"))
 def htm(h):
     def _htm(string):
         raise Exception("not supported")
@@ -17,4 +19,3 @@ def htm(h):
     return _htm
 ?'''
 # __pragma__ ('noecom')
-
