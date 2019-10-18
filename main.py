@@ -6,10 +6,12 @@ def html(tag, props, children):
     return tag, props, children
 
 
-name = "World"
+name = "World!"
 
-print(html("""
-    <div class="main">
-        Hello, <b>{name}!</b>
-    </div>
-"""))
+
+def view():
+    return html("""
+        <div class="main">
+            Hello, <b>{name}!</b>
+        </div>
+    """)
