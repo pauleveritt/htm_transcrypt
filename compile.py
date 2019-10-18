@@ -1,6 +1,7 @@
 import ast
+import subprocess
+
 import astor
-import pathlib
 from tagged import split
 
 
@@ -31,7 +32,17 @@ def compile(source):
     return astor.to_source(root)
 
 
-if __name__ == "__main__":
-    import sys
+def main():
+    currdir = '/Users/pauleveritt/projects/scratchpad/htm_transcrypt'
+    p = f'{currdir}/.venv/bin/python'
+    t = f'{currdir}/.venv/bin/transcrypt -b -m -n {currdir}/main_compiled.py'
+    args = f'-b -m -n {currdir}/main_compiled.py'
+    with open('main.py') as main_py:
+        with open(f'{currdir}/main_compiled.py', 'w') as main_compiled:
+            # Stage 1 from Joachim
+            compiled = compile(main_py.read())
+            main_compiled.write(compiled)
+            main_compiled.close()
 
-    sys.stdout.write(compile(sys.stdin.read()))
+            # Stage 2: Transcrypt
+            subprocess.call(t, shell=True, cwd=currdir)
