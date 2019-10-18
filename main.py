@@ -6,10 +6,10 @@ def html(tag, props, children):
     return tag, props, children
 
 
-name = "Worldssssss"
+name = "World"
 
 print(html("""
     <div class="main">
-        Helloxyz1234, <b>{name}!</b>
+        Hello, <b>{name}!</b>
     </div>
 """))
